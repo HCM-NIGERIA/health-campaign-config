@@ -29,15 +29,15 @@ ServiceMaps:
               - inJsonPath: $.lastModifiedTime
                 outJsonPath: $.Data.createdTime
               - inJsonPath: $.province
-                outJsonPath: $.Data.province
+                outJsonPath: $.Data.LGA
               - inJsonPath: $.district
-                outJsonPath: $.Data.district
+                outJsonPath: $.Data.Ward
               - inJsonPath: $.administrativeProvince
-                outJsonPath: $.Data.administrativeProvince
+                outJsonPath: $.Data.FLHF
               - inJsonPath: $.locality
-                outJsonPath: $.Data.locality
+                outJsonPath: $.Data.Community
               - inJsonPath: $.village
-                outJsonPath: $.Data.village
+                outJsonPath: $.Data.Settlement
               - inJsonPath: $.latitude
                 outJsonPath: $.Data.latitude
               - inJsonPath: $.longitude
