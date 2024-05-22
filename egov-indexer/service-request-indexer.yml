@@ -25,9 +25,9 @@ ServiceMaps:
             indexMapping: { "Data": { } }
             fieldMapping:
               - inJsonPath: $.createdBy
-                outJsonPath: $.Data.userId
+                outJsonPath: $.Data.syncedUserId
               - inJsonPath: $.userName
-                outJsonPath: $.Data.userName
+                outJsonPath: $.Data.syncedUserName
               - inJsonPath: $.role
                 outJsonPath: $.Data.role
               - inJsonPath: $.createdTime
@@ -40,6 +40,12 @@ ServiceMaps:
                 outJsonPath: $.Data.syncedTimeStamp
               - inJsonPath: $.@timestamp
                 outJsonPath: $.Data.@timestamp
+              - inJsonPath: $.taskDates
+                outJsonPath: $.Data.taskDates
+              - inJsonPath: $.userAddress
+                outJsonPath: $.Data.userAddress
+              - inJsonPath: $.additionalDetails
+                outJsonPath: $.Data.additionalDetails
           timeStampField: $.createdTime
     - topic: transformer-producer-service-index-v2-topic
       configKey: INDEX
@@ -64,9 +70,9 @@ ServiceMaps:
             indexMapping: { "Data": { } }
             fieldMapping:
               - inJsonPath: $.createdBy
-                outJsonPath: $.Data.userId
+                outJsonPath: $.Data.syncedUserId
               - inJsonPath: $.userName
-                outJsonPath: $.Data.userName
+                outJsonPath: $.Data.syncedUserName
               - inJsonPath: $.role
                 outJsonPath: $.Data.role
               - inJsonPath: $.boundaryHierarchy
@@ -79,4 +85,10 @@ ServiceMaps:
                 outJsonPath: $.Data.syncedTimeStamp
               - inJsonPath: $.@timestamp
                 outJsonPath: $.Data.@timestamp
+              - inJsonPath: $.taskDates
+                outJsonPath: $.Data.taskDates
+              - inJsonPath: $.userAddress
+                outJsonPath: $.Data.userAddress
+              - inJsonPath: $.additionalDetails
+                outJsonPath: $.Data.additionalDetails
           timeStampField: $.createdTime

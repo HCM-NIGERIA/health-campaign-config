@@ -281,6 +281,68 @@ serviceMaps:
             - jsonPath: $.*.totalBednets
 
     - version: 1.0
+      description: Persists Boundary(CSV) data into the table
+      fromTopic: create-boundaryCSV-data
+      isTransaction: true
+      queryMaps:
+        - query: INSERT INTO eg_dhis2_boundary_csv(id, name, parent, path, children, boundaryLevel, boundary, source, campaignStartDate, campaignEndDate, objectNode, createdBy, lastModifiedBy, createdTime, lastModifiedTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET name=?, parent=?, path=?, children=?, boundaryLevel=?, boundary=?, source=?, lastModifiedBy=?, lastModifiedTime=?, objectNode=?;
+          basePath: $.*
+          jsonMaps:
+            - jsonPath: $.*.id
+
+            - jsonPath: $.*.name
+
+            - jsonPath: $.*.parent
+
+            - jsonPath: $.*.path
+
+            - jsonPath: $.*.children
+
+            - jsonPath: $.*.boundaryLevel
+
+            - jsonPath: $.*.boundary
+
+            - jsonPath: $.*.source
+
+            - jsonPath: $.*.campaignStartDate
+
+            - jsonPath: $.*.campaignEndDate
+
+            - jsonPath: $.*.objectNode
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.*.auditDetails.createdBy
+
+            - jsonPath: $.*.auditDetails.lastModifiedBy
+
+            - jsonPath: $.*.auditDetails.createdTime
+
+            - jsonPath: $.*.auditDetails.lastModifiedTime
+
+            - jsonPath: $.*.name
+
+            - jsonPath: $.*.parent
+
+            - jsonPath: $.*.path
+
+            - jsonPath: $.*.children
+
+            - jsonPath: $.*.boundaryLevel
+
+            - jsonPath: $.*.boundary
+
+            - jsonPath: $.*.source
+
+            - jsonPath: $.*.auditDetails.lastModifiedBy
+
+            - jsonPath: $.*.auditDetails.lastModifiedTime
+
+            - jsonPath: $.*.objectNode
+              type: JSON
+              dbType: JSONB
+
+    - version: 1.0
       description: Persists HCM events into the table
       fromTopic: create-hcm-event-history
       isTransaction: true

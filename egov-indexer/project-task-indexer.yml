@@ -24,10 +24,10 @@ ServiceMaps:
           customJsonMapping:
             indexMapping: { "Data": {} }
             fieldMapping:
-              - inJsonPath: $.lastModifiedBy
-                outJsonPath: $.Data.userId
+              - inJsonPath: $.createdBy
+                outJsonPath: $.Data.syncedUserId
               - inJsonPath: $.userName
-                outJsonPath: $.Data.userName
+                outJsonPath: $.Data.syncedUserName
               - inJsonPath: $.role
                 outJsonPath: $.Data.role
               - inJsonPath: $.boundaryHierarchy
@@ -40,4 +40,12 @@ ServiceMaps:
                 outJsonPath: $.Data.syncedTimeStamp
               - inJsonPath: $.@timestamp
                 outJsonPath: $.Data.@timestamp
+              - inJsonPath: $.taskDates
+                outJsonPath: $.Data.taskDates
+              - inJsonPath: $.syncedDate
+                outJsonPath: $.Data.syncedDate
+              - inJsonPath: $.userAddress
+                outJsonPath: $.Data.userAddress
+              - inJsonPath: $.additionalDetails
+                outJsonPath: $.Data.additionalDetails
           timeStampField: $.createdTime

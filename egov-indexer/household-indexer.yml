@@ -10,7 +10,12 @@ ServiceMaps:
           id: $.household.clientReferenceId
           isBulk: true
           jsonPath: $.*
-          timeStampField: $.household.auditDetails.createdTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+          timeStampField: $.household.clientAuditDetails.lastModifiedTime
     - topic: delete-household-topic
       configKey: INDEX
       indexes:
@@ -25,10 +30,15 @@ ServiceMaps:
       indexes:
         - name: household-member-index-v1
           type: member
-          id: $.householdMember.id
+          id: $.householdMember.clientReferenceId
           isBulk: true
           jsonPath: $.*
-          timeStampField: $.householdMember.auditDetails.createdTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+          timeStampField: $.householdMember.clientAuditDetails.lastModifiedTime
     - topic: delete-household-member-topic
       configKey: INDEX
       indexes:
