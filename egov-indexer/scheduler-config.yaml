@@ -2,20 +2,20 @@ scripts:
   - name: population_coverage_heatmap.py
     path: population_coverage_heatmap.py
     requirementKey: populationCoverageHeatMap
-    frequency: '10'
+    frequency: '2'
     env: {}
   - name: delivered_coverage_heatmap.py
     path: delivered_coverage_heatmap.py
     requirementKey: deliveredCoverageHeatMap
-    frequency: '10'
+    frequency: '2'
     env: {}
   - name: product_coverage_heatmap.py
     path: product_coverage_heatmap.py
     requirementKey: productCoverageHeatMap
-    frequency: '10'
+    frequency: '2'
     env: {}
   - name: household_coverage_heatmap.py
     path: household_coverage_heatmap.py
     requirementKey: householdCoverageHeatMap
-    frequency: '10'
+    frequency: '2'
     env: {}
