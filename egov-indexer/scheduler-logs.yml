@@ -1,12 +1,12 @@
 ServiceMaps:
-  serviceName: python
+  serviceName: scheduler
   version: 1.0.0
   mappings:
-    - topic: test-python-kafka
+    - topic: scheduler-logs
       configKey: INDEX
       indexes:
-        - name: test-python-kafka
-          type: stock
+        - name: scheduler-logs
+          type: scheduler-logs
           id: $.id
           isBulk: true
           jsonPath: $
