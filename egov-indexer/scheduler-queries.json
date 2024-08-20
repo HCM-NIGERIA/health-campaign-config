@@ -1,7 +1,7 @@
 {
   "populationCoverageHeatMap": [
     {
-      "destMapLayerIndex": "copy-minjibir-wards",
+      "destMapLayerIndex": "copy-tofa-wards",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
@@ -157,7 +157,7 @@
       "registeredPath": "REGISTERED"
     },
     {
-      "destMapLayerIndex": "copy-minjibir-lga",
+      "destMapLayerIndex": "copy-tofa-lga",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
@@ -230,7 +230,7 @@
       "registeredPath": "REGISTERED"
     },
     {
-      "destMapLayerIndex": "copy-minjibir-wards",
+      "destMapLayerIndex": "copy-tofa-wards",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
@@ -386,7 +386,7 @@
       "deliveredPath": "DELIVERED"
     },
     {
-      "destMapLayerIndex": "copy-minjibir-lga",
+      "destMapLayerIndex": "copy-tofa-lga",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
@@ -467,7 +467,7 @@
       "deliveredPath": "DELIVERED"
     },
     {
-      "destMapLayerIndex": "copy-minjibir-wards",
+      "destMapLayerIndex": "copy-tofa-wards",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
@@ -550,7 +550,7 @@
   ],
   "productCoverageHeatMap": [
     {
-      "destMapLayerIndex": "copy-minjibir-wards",
+      "destMapLayerIndex": "copy-tofa-wards",
       "mapIndexIdVsBoundaryQuery": {
         "size": 200,
         "_source": [
