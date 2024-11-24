@@ -1,19 +1,9 @@
 defaults:
   frequency: '10'
 scripts:
-  - name: population_coverage_heatmap
-    path: population_coverage_heatmap.py
-    queriesConfigKey: populationCoverageHeatMap
-    frequency: '2'
-    env: {}
   - name: delivered_coverage_heatmap
     path: delivered_coverage_heatmap.py
     queriesConfigKey: deliveredCoverageHeatMap
-    frequency: '2'
-    env: {}
-  - name: product_coverage_heatmap
-    path: product_coverage_heatmap.py
-    queriesConfigKey: productCoverageHeatMap
     frequency: '2'
     env: {}
   - name: household_coverage_heatmap
