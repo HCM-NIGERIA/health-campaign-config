@@ -87,6 +87,182 @@
       "boundaryBucketsPath": "STATES",
       "targetsValuePath": "TARGETS",
       "registeredPath": "REGISTERED"
+    },
+    {
+      "destMapLayerIndex": "schisto-lgas-map",
+      "mapIndexIdVsBoundaryQuery": {
+        "size": 200,
+        "_source": [
+          "Data.boundaryHierarchy.lga"
+        ]
+      },
+      "targetsQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.targetType.keyword": {
+                    "value": "HOUSEHOLD"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "exists": {
+                  "field": "Data.boundaryHierarchy.ward"
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATES": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.lga.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "TARGETS": {
+                "sum": {
+                  "field": "Data.overallTarget"
+                }
+              }
+            }
+          }
+        }
+      },
+      "householdsRegisteredQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.additionalDetails.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATES": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.lga.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "REGISTERED": {
+                "value_count": {
+                  "field": "Data.household.id.keyword"
+                }
+              }
+            }
+          }
+        }
+      },
+      "boundaryBucketsPath": "STATES",
+      "targetsValuePath": "TARGETS",
+      "registeredPath": "REGISTERED"
+    },
+    {
+      "destMapLayerIndex": "schisto-wards-map",
+      "mapIndexIdVsBoundaryQuery": {
+        "size": 200,
+        "_source": [
+          "Data.boundaryHierarchy.ward"
+        ]
+      },
+      "targetsQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.targetType.keyword": {
+                    "value": "HOUSEHOLD"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "exists": {
+                  "field": "Data.boundaryHierarchy.healthFacility"
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATES": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.ward.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "TARGETS": {
+                "sum": {
+                  "field": "Data.overallTarget"
+                }
+              }
+            }
+          }
+        }
+      },
+      "householdsRegisteredQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.additionalDetails.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATES": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.ward.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "REGISTERED": {
+                "value_count": {
+                  "field": "Data.household.id.keyword"
+                }
+              }
+            }
+          }
+        }
+      },
+      "boundaryBucketsPath": "STATES",
+      "targetsValuePath": "TARGETS",
+      "registeredPath": "REGISTERED"
     }
   ],
   "deliveredCoverageHeatMap": [
@@ -169,6 +345,196 @@
           "STATE": {
             "terms": {
               "field": "Data.boundaryHierarchy.state.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "DELIVERED": {
+                "value_count": {
+                  "field": "Data.taskId.keyword"
+                }
+              }
+            }
+          }
+        }
+      },
+      "boundaryBucketsPath": "STATE",
+      "targetsValuePath": "TARGETS",
+      "deliveredPath": "DELIVERED"
+    },
+    {
+      "destMapLayerIndex": "schisto-lgas-map",
+      "mapIndexIdVsBoundaryQuery": {
+        "size": 200,
+        "_source": [
+          "Data.boundaryHierarchy.lga"
+        ]
+      },
+      "targetsQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.targetType.keyword": {
+                    "value": "INDIVIDUAL"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "exists": {
+                  "field": "Data.boundaryHierarchy.ward"
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATE": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.lga.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "TARGETS": {
+                "sum": {
+                  "field": "Data.overallTarget"
+                }
+              }
+            }
+          }
+        }
+      },
+      "deliveredQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.administrationStatus.keyword": {
+                    "value": "ADMINISTERED_SUCCESS"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATE": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.lga.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "DELIVERED": {
+                "value_count": {
+                  "field": "Data.taskId.keyword"
+                }
+              }
+            }
+          }
+        }
+      },
+      "boundaryBucketsPath": "STATE",
+      "targetsValuePath": "TARGETS",
+      "deliveredPath": "DELIVERED"
+    },
+    {
+      "destMapLayerIndex": "schisto-wards-map",
+      "mapIndexIdVsBoundaryQuery": {
+        "size": 200,
+        "_source": [
+          "Data.boundaryHierarchy.ward"
+        ]
+      },
+      "targetsQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.targetType.keyword": {
+                    "value": "INDIVIDUAL"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "exists": {
+                  "field": "Data.boundaryHierarchy.healthFacility"
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATE": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.ward.keyword",
+              "size": 100
+            },
+            "aggs": {
+              "TARGETS": {
+                "sum": {
+                  "field": "Data.overallTarget"
+                }
+              }
+            }
+          }
+        }
+      },
+      "deliveredQuery": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "Data.administrationStatus.keyword": {
+                    "value": "ADMINISTERED_SUCCESS"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "Data.projectTypeId.keyword": {
+                    "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "STATE": {
+            "terms": {
+              "field": "Data.boundaryHierarchy.ward.keyword",
               "size": 100
             },
             "aggs": {
