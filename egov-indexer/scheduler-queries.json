@@ -65,6 +65,15 @@
                   }
                 }
               }
+            ],
+            "must_not": [
+              {
+                "term": {
+                  "Data.additionalDetails.type.keyword": {
+                    "value": "SCHOOL"
+                  }
+                }
+              }
             ]
           }
         },
@@ -153,6 +162,15 @@
                   }
                 }
               }
+            ],
+            "must_not": [
+              {
+                "term": {
+                  "Data.additionalDetails.type.keyword": {
+                    "value": "SCHOOL"
+                  }
+                }
+              }
             ]
           }
         },
@@ -238,6 +256,15 @@
                 "term": {
                   "Data.additionalDetails.projectTypeId.keyword": {
                     "value": "40a528a0-4e0e-11ee-be56-0242ac1200ab"
+                  }
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "term": {
+                  "Data.additionalDetails.type.keyword": {
+                    "value": "SCHOOL"
                   }
                 }
               }
