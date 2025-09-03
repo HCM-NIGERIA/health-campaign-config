@@ -5,7 +5,7 @@ ServiceMaps:
     - topic: transformer-producer-user-action-index-v1-topic
       configKey: INDEX
       indexes:
-        - name: dip-user-action-index-v1
+        - name: user-action-index-v1
           type: UserAction
           id: $.id
           isBulk: true
