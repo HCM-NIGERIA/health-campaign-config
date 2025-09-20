@@ -55,4 +55,3 @@ serviceMaps:
               type: JSON
               dbType: JSONB
             - jsonPath: $.idPool.*.id
-
