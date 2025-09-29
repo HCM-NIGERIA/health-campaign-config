@@ -25,7 +25,7 @@ serviceMaps:
     - version: 1.0
       description: Updates DHIS2 records into the tables
       fromTopic: update-dhis2-record
-      isTransaction: true  
+      isTransaction: true
       queryMaps:
         - query: UPDATE eg_dhis2_record SET  dhis2Id= ?, dhis2EntityType=?, dhis2DataPayload=?, lastModifiedTime=?, lastModifiedBy=?  WHERE dhis2RecordInternalID=?;
           basePath: $.*
@@ -63,7 +63,7 @@ serviceMaps:
 
     - version: 1.0
       description: Updates DIGIT records into the tables
-      fromTopic: update-digit-record    
+      fromTopic: update-digit-record
       isTransaction: true
       queryMaps:
         - query: UPDATE eg_digit_record SET  digitId= ?,referenceId=? ,digitEntityType=?, digitDataPayload=?, lastModifiedTime=?, lastModifiedBy=? WHERE digitRecordInternalId=?;
@@ -285,7 +285,7 @@ serviceMaps:
       fromTopic: create-boundaryCSV-data
       isTransaction: true
       queryMaps:
-        - query: INSERT INTO eg_dhis2_boundary_csv(id, name, parent, path, children, boundaryLevel, boundary, source, campaignStartDate, campaignEndDate, objectNode, createdBy, lastModifiedBy, createdTime, lastModifiedTime, area) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET name=?, parent=?, path=?, children=?, boundaryLevel=?, boundary=?, source=?, lastModifiedBy=?, lastModifiedTime=?, objectNode=?, area=?;
+        - query: INSERT INTO eg_dhis2_boundary_csv(id, name, parent, path, children, boundaryLevel, boundary, source, campaignStartDate, campaignEndDate, objectNode, createdBy, lastModifiedBy, createdTime, lastModifiedTime, boundaryHierarchy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id, boundaryHierarchy) DO UPDATE SET name=?, parent=?, path=?, children=?, boundaryLevel=?, boundary=?, source=?, lastModifiedBy=?, lastModifiedTime=?, objectNode=?, boundaryHierarchy=?;
           basePath: $.*
           jsonMaps:
             - jsonPath: $.*.id
@@ -320,7 +320,7 @@ serviceMaps:
 
             - jsonPath: $.*.auditDetails.lastModifiedTime
 
-            - jsonPath: $.*.area
+            - jsonPath: $.*.boundaryHierarchy
 
             - jsonPath: $.*.name
 
@@ -344,7 +344,7 @@ serviceMaps:
               type: JSON
               dbType: JSONB
 
-            - jsonPath: $.*.area  
+            - jsonPath: $.*.boundaryHierarchy
 
     - version: 1.0
       description: Persists HCM events into the table
