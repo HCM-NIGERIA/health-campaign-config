@@ -30,7 +30,7 @@ ServiceMaps:
               - inJsonPath: $
                 outJsonPath: $.Data
           timeStampField: $.userAction.auditDetails.lastModifiedTime
-    - topic: transformer-producer-user-action-index-v1-topic-non-compliance
+    - topic: transformer-producer-user-action-index-v1-topic-non_compliance
       configKey: INDEX
       indexes:
         - name: user-action-non-compliance-index-v1
@@ -86,7 +86,7 @@ ServiceMaps:
               - inJsonPath: $
                 outJsonPath: $.Data
           timeStampField: $.userAction.auditDetails.lastModifiedTime
-    - topic: transformer-producer-user-action-index-v1-topic-daily-plan
+    - topic: transformer-producer-user-action-index-v1-topic-daily_plan
       configKey: INDEX
       indexes:
         - name: user-action-daily-plan-index-v1
